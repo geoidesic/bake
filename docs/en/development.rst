@@ -36,6 +36,8 @@ be used::
 If you want to modify bake from within another plugin, putting your plugin's
 bake events in the plugin ``config/bootstrap.php`` file is a good idea.
 
+.. note:: Cake 4.x plugin architecture does not respect `//config/bootstrap_cli.php`, instead use the `Plugin::bootstrap` method
+
 Bake events can be handy for making small changes to existing templates.
 For example, to change the variable names used when baking controller/template
 files one can use a function listening for ``Bake.beforeRender`` to modify the
@@ -206,6 +208,8 @@ It's possible to add new bake command options, or override the ones provided by
 CakePHP by creating tasks in your application or plugins. By extending
 ``Bake\Shell\Task\BakeTask``, bake will find your new task and include it as
 part of bake.
+
+.. note:: CakePHP 4.x deprecates Shells and Tasks, use Commands instead. 
 
 As an example, we'll make a task that creates an arbitrary foo class. First,
 create the task file **src/Shell/Task/FooTask.php**. We'll extend the
